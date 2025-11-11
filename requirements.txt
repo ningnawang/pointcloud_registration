@@ -1,4 +1,5 @@
-gpytoolbox==0.3.7
+# gpytoolbox==0.3.7
 numpy==2.2.6
-scipy==1.15
-polyscope==2.5.0
+# scipy==1.15
+# polyscope==2.5.0
+libigl==2.6.1

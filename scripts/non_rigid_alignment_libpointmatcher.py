@@ -8,7 +8,7 @@ FA = np.asarray(meshA.faces, dtype=np.int32)
 VB = np.asarray(meshB.vertices, dtype=np.float64)
 FB = np.asarray(meshB.faces, dtype=np.int32)
 
-res = icp_similarity.icp_similarity_register_meshes(VA, FA, VB, FB,
+res = icp_similarity.icp_libpointmatcher(VA, FA, VB, FB,
                                                     n_samples=20000,
                                                     max_iter=100,
                                                     trim_ratio=0.85)

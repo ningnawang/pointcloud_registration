@@ -24,7 +24,7 @@ def main():
     )
     args = parser.parse_args()
 
-    R, t = pc_align.icp_rigid_register_meshes_from_paths(
+    R, t = pc_align.icp_libigl_from_paths(
         args.mesh_a, args.mesh_b, args.samples, args.iters
     )
 
