@@ -1,13 +1,6 @@
 # These are the imports we're going to use in all scripts.
 import sys, os, platform
 import numpy as np
-# import gpytoolbox as gpy
-# from scipy.sparse.linalg import eigsh
-# import polyscope as ps
-# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-# import meshapprox
-# import utility
 
 # Get the operating system name and version
 os_name = platform.system()

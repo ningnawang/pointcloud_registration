@@ -14,8 +14,6 @@ python -c "import platform; print(platform.machine())"
 ```
 conda create -n pc python=3.10
 python -m pip install -r requirements.txt
-# Install dependencies of libpointmatcher
-conda install -c conda-forge yaml-cpp eigen boost-cpp
 ```
 
 ```

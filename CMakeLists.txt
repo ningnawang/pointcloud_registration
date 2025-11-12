@@ -37,20 +37,13 @@ include(libigl)
 # igl_include(glfw)
 # igl_include(embree)
 
-# # required by libpointmatcher
-# include(libnabo)
-# include(yaml-cpp)
-# include(libpointmatcher)
-# find_package(Boost REQUIRED)
-
 include(pybind11)
 
 # All libraries to link
 set(PROJ_LIBS 
 		igl::core 
 		pybind11::module 
-		Eigen3::Eigen 
-		# pointmatcher
+		Eigen3::Eigen
 		${GL_LIBS}
 )
 
@@ -58,10 +51,8 @@ set(PROJ_LIBS
 add_library(cpp_src
 	STATIC
 	# Headers
-	# "${CMAKE_CURRENT_SOURCE_DIR}/src/cpp/non_rigid_alignment.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/cpp/icp_libigl.h"
 	# Source
-	# "${CMAKE_CURRENT_SOURCE_DIR}/src/cpp/non_rigid_alignment.cpp"
 	"${CMAKE_CURRENT_SOURCE_DIR}/src/cpp/icp_libigl.cpp"
 	)
 target_link_libraries(cpp_src "${PROJ_LIBS}")
