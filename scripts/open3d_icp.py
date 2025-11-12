@@ -1,11 +1,3 @@
-# ----------------------------------------------------------------------------
-# -                        Open3D: www.open3d.org                            -
-# ----------------------------------------------------------------------------
-# Copyright (c) 2018-2024 www.open3d.org
-# SPDX-License-Identifier: MIT
-# ----------------------------------------------------------------------------
-"""ICP (Iterative Closest Point) registration algorithm"""
-
 import open3d as o3d
 import copy
 from context import *
@@ -42,32 +34,25 @@ def point_to_plane_icp(source, target, threshold):
     print_rt_from_transform(reg_p2l.transformation)
     draw_registration_result(source, target, reg_p2l.transformation)
 
-
+# To run:
+# python open3d_icp.py ../data/mask.obj ../data/max_planck_face.obj
 def main():
     parser = argparse.ArgumentParser(
         description="Rigidly align mesh A to mesh B using open3d"
     )
-    parser.add_argument("mesh_a", type=str, help="Path to source mesh A")
-    parser.add_argument("mesh_b", type=str, help="Path to target mesh B")
+    parser.add_argument("mesh_source", type=str, help="Path to source mesh A")
+    parser.add_argument("mesh_target", type=str, help="Path to target mesh B")
     parser.add_argument(
         "--samples",
         type=int,
-        default=2000,
-        help="Number of sampled points from mesh A per iteration (default 2000)",
-    )
-    parser.add_argument(
-        "--iters",
-        type=int,
-        default=30,
-        help="Maximum number of ICP iterations (default 30)",
+        default=10000,
+        help="Number of sampled points from mesh A per iteration (default 10000)",
     )
     args = parser.parse_args()
 
-   
-    source = load_mesh_as_point_cloud(args.mesh_a, n_points=args.samples)
-    target = load_mesh_as_point_cloud(args.mesh_b, n_points=args.samples)
+    source = load_mesh_as_point_cloud(args.mesh_source, n_points=args.samples)
+    target = load_mesh_as_point_cloud(args.mesh_target, n_points=args.samples)
     threshold = 5000
-    
 
     print("Initial alignment")
     evaluation = o3d.pipelines.registration.evaluate_registration(
