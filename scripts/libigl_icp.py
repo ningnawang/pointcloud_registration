@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-import argparse
-import igl
-import numpy as np
 from context import *
 
 def main():
@@ -34,6 +31,7 @@ def main():
     print("\nTranslation vector t (1x3):")
     print(t)
 
-
+# To run:
+# python libigl_icp.py ../data/mask.obj ../data/max_planck_face.obj 
 if __name__ == "__main__":
     main()

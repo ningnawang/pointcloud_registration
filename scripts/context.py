@@ -1,6 +1,7 @@
 # These are the imports we're going to use in all scripts.
 import sys, os, platform
 import numpy as np
+import argparse
 
 # Get the operating system name and version
 os_name = platform.system()
