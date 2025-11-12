@@ -1,7 +1,7 @@
 import open3d as o3d
 from context import *
-from open3d_utils import print_rt_from_transform, load_mesh_as_point_cloud
 from copy import deepcopy
+from open3d_utils import print_rt_from_transform, load_mesh_as_point_cloud, load_mesh_subset_as_point_cloud
 
 def visualize_registration(src, dst, transformation=np.eye(4)):
     src_trans = deepcopy(src)
@@ -77,7 +77,8 @@ if __name__ == "__main__":
 
     print("Reading inputs")
     src = load_mesh_as_point_cloud(args.mesh_source, n_points=args.samples)
-    dst = load_mesh_as_point_cloud(args.mesh_target, n_points=args.samples)
+    # dst = load_mesh_as_point_cloud(args.mesh_target, n_points=args.samples)
+    dst = load_mesh_subset_as_point_cloud(args.mesh_target, n_points=args.samples)
 
     print("Downsampling inputs")
     src_down, src_fpfh = preprocess_point_cloud(src, voxel_size)

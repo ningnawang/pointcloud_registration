@@ -1,7 +1,7 @@
 import open3d as o3d
 import copy
 from context import *
-from open3d_utils import print_rt_from_transform, load_mesh_as_point_cloud
+from open3d_utils import print_rt_from_transform, load_mesh_as_point_cloud, load_mesh_subset_as_point_cloud
 
 
 def draw_registration_result(source, target, transformation):
@@ -51,7 +51,7 @@ def main():
     args = parser.parse_args()
 
     source = load_mesh_as_point_cloud(args.mesh_source, n_points=args.samples)
-    target = load_mesh_as_point_cloud(args.mesh_target, n_points=args.samples)
+    target = load_mesh_subset_as_point_cloud(args.mesh_target, n_points=args.samples)
     threshold = 5000
 
     print("Initial alignment")

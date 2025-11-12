@@ -1,6 +1,6 @@
 import open3d as o3d
 from context import *
-from open3d_utils import print_rt_from_transform, load_mesh_as_point_cloud
+from open3d_utils import print_rt_from_transform, load_mesh_as_point_cloud, load_mesh_subset_as_point_cloud
 
 def preprocess_point_cloud(pcd, voxel_size):
     pcd_down = pcd.voxel_down_sample(voxel_size)
@@ -57,7 +57,8 @@ if __name__ == '__main__':
     o3d.utility.set_verbosity_level(o3d.utility.VerbosityLevel.Debug)
     print('Reading inputs')
     src = load_mesh_as_point_cloud(args.mesh_source, n_points=args.samples)
-    dst = load_mesh_as_point_cloud(args.mesh_target, n_points=args.samples)
+    # dst = load_mesh_as_point_cloud(args.mesh_target, n_points=args.samples)
+    dst = load_mesh_subset_as_point_cloud(args.mesh_target, n_points=args.samples)
 
     print('Downsampling inputs')
     src_down, src_fpfh = preprocess_point_cloud(src, voxel_size)
